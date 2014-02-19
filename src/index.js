@@ -25,7 +25,41 @@ var envs = {
 	'DEV_SSL':false
 }
 
-module.exports = function(options){
+function slurp_env(opts){
+	opts = opts || {};
+
+	Object.keys(envs || {}).forEach(function(prop){
+		if(process.env.hasOwnProperty(prop)){
+			opts[prop] = process.env[prop];	
+		}
+	})
+
+	return opts;
+}
+
+function check_options(options){
+	options = options || {};
+	Object.keys(envs || {}).forEach(function(prop){
+		if(!options.hasOwnProperty(prop)){
+			throw new Error(prop + ' required');
+		}
+	})
+}
+
+module.exports = function(options, slurp){
+
+	if(typeof(options)=='boolean'){
+		slurp = options;
+		options = {};
+	}
+
+	options = options || {};
+
+	if(slurp){
+		options = slurp_env(options);
+	}
+
+	check_options(options);
 
 	var shop = new EventEmitter();
 
@@ -49,31 +83,8 @@ module.exports = function(options){
 
 		shop.router = router;
 
-		done && done();
+		done && done(shop.router);
 	}
 
 	return shop;
-}
-
-module.exports.slurp_env = function(options){
-	options = options || {};
-
-	Object.keys(envs || {}).forEach(function(prop){
-		if(process.env[prop]){
-			options[prop] = process.env[prop];	
-		}
-	})
-
-	return options;
-}
-
-module.exports.check_options = function(options){
-	options = options || {};
-	Object.keys(envs || {}).forEach(function(prop){
-		if(!options[prop]){
-			throw new Error(prop + ' required');
-		}
-	})
-
-	return options;
 }
