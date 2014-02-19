@@ -1,0 +1,13 @@
+{
+  "name": "editor-app",
+  "description": "generic digger editor plugin",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+  	"diggerio/digger-editor": "*",
+    "binocarlos/file-uploader": "*"
+  }
+}

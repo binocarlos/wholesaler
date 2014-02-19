@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Funkybods - Admin
+    include ../includes/head
+    link(rel="stylesheet" href='/css/bootstrap.css')
+    link(rel="stylesheet" href='/css/funkybods.css')
+    link(rel="stylesheet" href='/app/editor-app/build/build.css')
+body
+  #wrap()
+    .container
+      include ./menu
+      
+      .row
+        a.homebutton.btn.btn-lg.btn-primary(href="/orders") orders
+
+  include ../includes/footer
+  script(src="/js/jquery.min.js")
+  script(src="/js/jquery.growl.js")
+  script(src="/js/bootstrap.min.js")
+  script(src="/js/angular.min.js")
+  

@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title Funkybods - Orders
+    include ../includes/head
+    link(rel="stylesheet" href='/css/bootstrap.css')
+    link(rel="stylesheet" href='/css/funkybods.css')
+    link(rel="stylesheet" href='/app/editor-app/build/build.css')
+body
+  #wrap(ng-app="funkybods.admin.orders" ng-controller="OrdersCtrl")
+    .container
+      include ./menu
+      
+      .row
+        digger-editor(container="container" settings="settings")
+
+  include ../includes/footer
+  script(src="/js/jquery.min.js")
+  script(src="/js/jquery.growl.js")
+  script(src="/js/bootstrap.min.js")
+  script(src="/js/angular.min.js")
+  script(src="/app/build/digger.js")
+  script(src="/app/editor-app/build/build.js")
+  script.
+    $digger = diggerfactory();
+    var EditorApp = require('editor-app');
+
+    EditorApp({
+      title:'Orders',
+      id:'funkybods.admin.orders',
+      controller:'OrdersCtrl',
+      warehouse:'/orders',
+      blueprints:[
+        '/config/blueprints/shop.xml'
+      ]
+    })

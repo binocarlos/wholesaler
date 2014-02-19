@@ -1,0 +1,14 @@
+.navbar.navbar-default.navbar-fixed-top(role="navigation")
+  .container
+    .navbar-header
+      .button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li(class=page=='home' ? 'active' : '')
+          a(href="/") Home
+        li(class=page=='tracks' ? 'active' : '')
+          a(href="/orders") Orders

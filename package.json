@@ -1,0 +1,32 @@
+{
+  "name": "wholesaler",
+  "version": "0.0.1",
+  "description": "Digger based app for running online shops",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/_mocha test/*.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "ecstatic": "~0.4.13",
+    "async": "~0.2.9",
+    "jade": "~1.1.4",
+    "optimist": "~0.6.0",
+    "basic-auth-connect": "~1.0.0",
+    "ejs": "~0.8.5",
+    "digger-stack": "~1.2.1",
+    "digger-mongo": "*",
+    "digger-static": "*",
+    "digger-mailgun": "*",
+    "digger-bridge": "~1.1.3",
+    "digger-client": "~2.1.0",
+    "digger-supplychain": "~0.3.0",
+    "stripe": "2.2.0",
+    "simple-recaptcha": "0.0.3",
+    "busboy": "0.0.15"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
+}

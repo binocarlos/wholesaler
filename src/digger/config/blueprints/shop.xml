@@ -1,0 +1,28 @@
+<folder>
+
+	<blueprint name="folder">
+    <field name="name" />
+  </blueprint>
+
+  <blueprint name="customer" children="order">
+    <field name="name" />
+    <field name="email" />
+  </blueprint>
+
+  <blueprint name="order" leaf="true">
+    <field title="id" name="payment.id" />
+    <field title="customer" name="name" />
+    <field title="email" name="email" />
+    <field title="amount" name="amount" />
+    <field title="order" type="textarea" name="order.cart.notes" />
+    <tab name="address">
+      <field title="address_line1" name="cart.settings.address.line1" />
+      <field title="address_line2" name="cart.settings.address.line2" />
+      <field title="address_city" name="cart.settings.address.city" />
+      <field title="address_state" name="cart.settings.address.state" />
+      <field title="address_zip" name="cart.settings.address.zip" />
+      <field title="address_country" name="cart.settings.address.country" />
+    </tab>
+  </blueprint>
+
+</folder>
